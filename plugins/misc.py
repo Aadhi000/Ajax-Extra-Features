@@ -208,9 +208,7 @@ async def imdb_callback(bot: Client, query: CallbackQuery):
             ]
         ]
     if imdb:
-        caption = IMDB_TEMPLATE.format(
-            group = message.chat.title,
-            requested = message.from_user.mention,        
+        caption = IMDB_TEMPLATE.format(                  
             query = imdb['title'],
             title = imdb['title'],
             votes = imdb['votes'],
