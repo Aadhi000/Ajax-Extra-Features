@@ -49,7 +49,7 @@
 * `DATABASE_URI`: [mongoDB](https://www.mongodb.com) URI. Get this value from [mongoDB](https://www.mongodb.com).
 * `DATABASE_NAME`: Name of the database in [mongoDB](https://www.mongodb.com). For more help watch this 
 * `LOG_CHANNEL` : A channel to log the activities of bot. Make sure bot is an admin in the channel.
-* `SUPPORT_CHAT` : @MWUpdatez
+* `SUPPORT_CHAT` : @Nankomali2
 * `PICS`: Telegraph links of images to show in start message.( Multiple images can be used seperated by space )
 ### Optional Variables
 
@@ -64,10 +64,6 @@ You can deploy this bot anywhere.
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 </p>
-
-<a href="https://youtu.be/kB9TkCs8cX0">
-  <img src="https://img.shields.io/badge/How%20to-Deploy-red?logo=youtube" width="147">
-</a><br>
 
 <details><summary>Deploy To VPS</summary>
 <p>
@@ -110,6 +106,5 @@ python3 bot.py
 * /channel - to get list of total connected channels
 * /broadcast - to broadcast a message to all Ajax users
 ```
-
-<b>✮ 𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 ›› [𝐀𝐚𝐝𝐡𝐢](https://t.me/Aadhi011)</b>                                                                                                                                                                                     
-<b>✮ 𝙲𝙷𝙰𝙽𝙽𝙴𝙻 ›› [𝐌𝐖 𝐔𝐩𝐝𝐚𝐭𝐞𝐳](https://t.me/MWUpdatez)</b>
+                                                                                                                                                                                     
+<b>✮ 𝙲𝙷𝙰𝙽𝙽𝙴𝙻 ›› [NAN KOMALI](https://t.me/Nankomali2)</b>
