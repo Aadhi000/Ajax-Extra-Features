@@ -40,5 +40,6 @@ async def left(client,message):
 		except :
 			print("error")
 	else:
-			 ms = await message.reply_text("You can Use This Command by using reply to message")
-			 await ms.delete()
+             ms = await message.reply_text(f"<b>You can Use This Command by using reply to message</b>")
+             await asyncio.sleep(10)
+             await ms.delete()
