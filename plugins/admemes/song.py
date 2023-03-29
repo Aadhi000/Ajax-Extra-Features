@@ -3,11 +3,10 @@ from __future__ import unicode_literals
 import os
 import requests
 import aiohttp
-import yt_dlp
 import asyncio
 import math
 import time
-
+import yt_dlp
 import wget
 import aiofiles
 
@@ -16,8 +15,9 @@ from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import Message
 from youtube_search import YoutubeSearch
 from youtubesearchpython import SearchVideos
-from yt_dlp import YoutubeDL
 import youtube_dl
+from yt_dlp import YoutubeDL
+
 import requests
 
 def time_to_seconds(time):
@@ -25,7 +25,7 @@ def time_to_seconds(time):
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(':'))))
 
 
-@Client.on_message(filters.command('song') & ~filters.private & ~filters.channel)
+@Client.on_message(filters.command('song'))
 def song(client, message):
 
     user_id = message.from_user.id 
@@ -49,7 +49,7 @@ def song(client, message):
         open(thumb_name, 'wb').write(thumb.content)
 
 
-        performer = f"[ᗩᒍᗩ᙭]" 
+        performer = f"› ᴀᴊᴀx sᴏɴɢs ‹" 
         duration = results[0]["duration"]
         url_suffix = results[0]["url_suffix"]
         views = results[0]["views"]
@@ -66,7 +66,13 @@ def song(client, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = '**𝚂𝚄𝙱𝚂𝙲𝚁𝙸𝙱𝙴 ›› [𝙾𝙿𝚄𝚂-𝚃𝙴𝙲𝙷𝚉](https://youtube.com/channel/UCf_dVNrilcT0V2R--HbYpMA)**\n**𝙿𝙾𝚆𝙴𝚁𝙴𝙳 𝙱𝚈 ›› [muѕíc вσч](https://t.me/OPMusicBoy_Bot)**'
+        rep = f"""
+**❖ ᴛɪᴛʟᴇ ›› [{title}]({link})**
+**❖ ᴅᴜʀᴀᴛɪᴏɴ ›› {duration}**
+**❖ sᴜʙsᴄʀɪʙᴇ ›› [ᴏᴘᴜsᴛᴇᴄʜᴢ](https://youtube.com/OpusTechz)**
+**❖ ᴘᴏᴡᴇʀᴅ ʙʏ ›› [ᴀᴊᴀx](https://t.me/Devil0bot_Bot)**
+**❖ ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ ›› {rpk}**
+"""
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
@@ -74,7 +80,7 @@ def song(client, message):
         message.reply_audio(audio_file, caption=rep, parse_mode='md',quote=False, title=title, duration=dur, performer=performer, thumb=thumb_name)
         m.delete()
     except Exception as e:
-        m.edit("**🚫 𝙴𝚁𝚁𝙾𝚁 🚫**")
+        m.edit("**🚫 ᴇʀʀᴏʀ 🚫**")
         print(e)
 
     try:
@@ -100,7 +106,7 @@ async def vsong(client, message: Message):
     urlissed = get_text(message)
 
     pablo = await client.send_message(
-        message.chat.id, f"**𝙵𝙸𝙽𝙳𝙸𝙽𝙶 𝚈𝙾𝚄𝚁 𝚅𝙸𝙳𝙴𝙾** `{urlissed}`"
+        message.chat.id, f"**sᴇᴀʀᴄʜɪɴɢ ʏᴏᴜʀ ᴠᴜᴅᴇᴏ** `{urlissed}`"
     )
     if not urlissed:
         await pablo.edit("Invalid Command Syntax Please Check help Menu To Know More!")
@@ -138,8 +144,8 @@ async def vsong(client, message: Message):
     c_time = time.time()
     file_stark = f"{ytdl_data['id']}.mp4"
     capy = f"""
-**𝚃𝙸𝚃𝙻𝙴 :** [{thum}]({mo})
-**𝚁𝙴𝚀𝚄𝙴𝚂𝚃𝙴𝙳 𝙱𝚈 :** {message.from_user.mention}
+**ᴛɪᴛʟᴇ :** [{thum}]({mo})
+**ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ :** {message.from_user.mention}
 """
     await client.send_video(
         message.chat.id,
@@ -155,4 +161,3 @@ async def vsong(client, message: Message):
     for files in (sedlyf, file_stark):
         if files and os.path.exists(files):
             os.remove(files)
-
